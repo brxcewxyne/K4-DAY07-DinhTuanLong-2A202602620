@@ -141,8 +141,6 @@ Vượt qua bộ kiểm thử là điều kiện tính điểm phần này.
 ### Kết Quả Kiểm Thử (Test Results)
 
 ```
-# Dán kết quả (output) của: pytest tests/ -v
-```
 ========================================== test session starts ===========================================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\ASUS\Documents\AI thực chiến\K4-DAY07-DinhTuanLong-2A202602620\.venv\Scripts\python.exe
 cachedir: .pytest_cache
@@ -232,6 +230,8 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 **Điểm Section 5 chính thức sau Agent evaluation (Gemini gemini-3.6-flash, temperature=0.0):**
 Q1: 2/2, Q2: 1/2, Q3: 2/2, Q4: 0/2, Q5: 1/2 — **tổng 6/10**.
 Chi tiết đầy đủ trong `agent_results.txt`. Retrieval diagnostic là 7/10; chênh lệch 1 điểm đến từ Q5 — retrieval đúng (evidence rank 1) nhưng câu trả lời của Agent thiếu vế “trường hợp phức tạp”, đúng trường hợp rubric 1 điểm (“có đoạn liên quan nhưng câu trả lời thiếu chi tiết”). Đây chính là lý do điểm Agent-evaluated khác điểm proxy chỉ dựa trên rank.
+
+> Lưu ý: câu trả lời của LLM có thể thay đổi nhẹ giữa các lần chạy dù `temperature=0.0`. Một lần kiểm tra lại sau đó, Gemini trả đầy đủ thêm vế “trường hợp phức tạp có thể kéo dài” ở Q5 và đạt 7/10, trong khi retrieval không thay đổi. Báo cáo này giữ kết quả 6/10 của lần đánh giá chính thức đã được dùng để chấm phần cá nhân.
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
 > Qua việc so sánh các chiến lược trong nhóm, tôi nhận ra chunking tốt không chỉ là giữ chunk đủ nhỏ mà còn phải bảo toàn cấu trúc của tài liệu. RecursiveChunker của Phùng Thành An cho thấy việc giữ các ranh giới tự nhiên có thể giúp retrieval tốt hơn, trong khi FixedSize có thể làm mất context dù dùng embedding mạnh.
