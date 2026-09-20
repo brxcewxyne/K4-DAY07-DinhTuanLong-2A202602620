@@ -6,13 +6,18 @@ Retrieval pipeline (unchanged from bench.py):
   -> EmbeddingStore.search_with_filter (top-3, benchmark metadata filters)
 
 Generation backend: Gemini API (google-genai SDK), used ONLY for the final
-answer. Set the key before running (Windows CMD)::
+answer. Credentials come from a root-level `.env` file (loaded via
+python-dotenv BEFORE any environment variable is read)::
 
-    set GEMINI_API_KEY=YOUR_KEY
+    GEMINI_API_KEY=<real-key>
+    GEMINI_MODEL=gemini-3.6-flash
+
+Then run::
+
     .venv\\Scripts\\python.exe agent_eval.py
 
 Optional overrides:
-  GEMINI_MODEL  Gemini model id (default: gemini-2.5-flash)
+  GEMINI_MODEL  Gemini model id (default: gemini-3.6-flash)
 
 KnowledgeBaseAgent itself is left untouched: it calls store.search(), so each
 query runs through a FilteredSearchStore that exposes the benchmark
@@ -28,6 +33,10 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from dotenv import load_dotenv
+
+load_dotenv(override=False)
+
 from bench import (
     BENCHMARK_QUESTIONS,
     CORPUS_DIR,
@@ -41,7 +50,7 @@ from src.models import Document
 from src.store import EmbeddingStore
 
 
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
 OUTPUT_PATH = Path(__file__).resolve().parent / "agent_results.txt"
 
 INSUFFICIENT_SENTENCE = "Ngữ cảnh được cung cấp không đủ để trả lời câu hỏi."
@@ -88,7 +97,8 @@ def _api_key() -> str:
     if not key:
         raise SystemExit(
             "GEMINI_API_KEY or GOOGLE_API_KEY is required. "
-            "Set it before running (Windows CMD): set GEMINI_API_KEY=YOUR_KEY"
+            "Put it in a root-level .env file as GEMINI_API_KEY=<real-key> "
+            "(see .env.example); the key value is never printed or logged."
         )
     return key
 

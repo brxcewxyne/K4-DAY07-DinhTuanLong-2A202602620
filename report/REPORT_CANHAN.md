@@ -1,7 +1,7 @@
 # Báo Cáo Cá Nhân — Lab 7: Embedding & Vector Store
 
 **Họ tên:** Đinh Tuấn Long
-**Nhóm:** [Tên nhóm]
+**Nhóm:** BLAS
 **Ngày:** 20/09
 
 > **Nộp 1 bản / sinh viên.** Phần nhóm (lựa chọn tài liệu, thiết kế chiến lược, bộ câu hỏi đánh giá, demo) nộp chung 1 bản trong `REPORT_NHOM.md`. Chi tiết thang điểm: `docs/SCORING.md`.
@@ -200,8 +200,6 @@ tests/test_solution.py::TestEmbeddingStoreDeleteDocument::test_delete_returns_tr
 
 ## 4. Dự đoán độ tương tự (Similarity Predictions) — Cá nhân (5 điểm)
 
-## 4. Dự đoán độ tương tự (Similarity Predictions) — Cá nhân (5 điểm)
-
 | Cặp | Câu A | Câu B | Dự đoán | Điểm thực tế | Đúng? |
 |---|---|---|---|---:|---|
 | 1 | Người mua có thể yêu cầu hoàn tiền trong vòng 15 ngày. | Khách hàng được phép gửi yêu cầu refund trong thời hạn 15 ngày. | Cao | 0.7736 | Có |
@@ -223,16 +221,20 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 
 | # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Câu trả lời của Agent (tóm tắt) |
 |---|---|---|---:|---|---|
-| 1 | Người Mua có bao lâu để gửi yêu cầu trả hàng/hoàn tiền sau khi đơn được giao thành công? | `return-refund-policy#8` — mục 3.2, chứa quy định Người Mua có thể gửi yêu cầu trong vòng 15 ngày kể từ khi đơn được cập nhật giao hàng thành công | 2/2 | Có — chunk chứa đáp án ở rank 1 | Chưa đánh giá bằng real LLM; retrieval context đã chứa đáp án |
-| 2 | Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm? | `shopee-mall-buyer#18` — section về thời hạn và điều kiện trả hàng; chunk chứa đáp án `shopee-mall-buyer#5` nằm ở rank 2 và chứa mốc 06 ngày lịch | 1/2 | Có — chunk chứa đáp án ở rank 2 | Chưa đánh giá bằng real LLM; retrieval context đã chứa đáp án |
-| 3 | Khi Shopee yêu cầu bằng chứng cho một yêu cầu trả hàng/hoàn tiền Shopee Mall, Người Bán phải cung cấp trong bao lâu? | `shopee-mall-seller#4` — chứa quy định Người Bán phải cung cấp bằng chứng trong tối đa 24 giờ | 2/2 | Có — chunk chứa đáp án ở rank 1 | Chưa đánh giá bằng real LLM; retrieval context đã chứa đáp án |
-| 4 | Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee? | `warranty-general-seller#22` — đúng tài liệu seller nhưng section top-1 không chứa trực tiếp câu trả lời về trách nhiệm tiếp nhận bảo hành | 0/2 | Không — chunk chứa đáp án không nằm trong top-3 | Chưa đánh giá bằng real LLM; context top-3 chưa đủ để trả lời chắc chắn |
-| 5 | Đối với tranh chấp không phải khiếu nại trả hàng/hoàn tiền, Shopee đưa ra hướng giải quyết trong bao lâu sau khi nhận đủ tài liệu? | `dispute-resolution#3` — chứa quy định Shopee đưa ra hướng giải quyết trong vòng 07 ngày làm việc kể từ khi nhận đủ tài liệu | 2/2 | Có — chunk chứa đáp án ở rank 1 | Chưa đánh giá bằng real LLM; retrieval context đã chứa đáp án |
+| 1 | Người Mua có bao lâu để gửi yêu cầu trả hàng/hoàn tiền sau khi đơn được giao thành công? | `return-refund-policy#8` — mục 3.2, chứa quy định Người Mua có thể gửi yêu cầu trong vòng 15 ngày kể từ khi đơn được cập nhật giao hàng thành công | 2/2 | Có — chunk chứa đáp án ở rank 1 | Gemini (gemini-3.6-flash) trả lời đúng cả hai mốc: 15 ngày cho sản phẩm thông thường, 24 giờ cho thực phẩm tươi sống/đông lạnh, có citation [1] — GROUNDED_CORRECT |
+| 2 | Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm? | `shopee-mall-buyer#18` — section về thời hạn và điều kiện trả hàng; chunk chứa đáp án `shopee-mall-buyer#5` nằm ở rank 2 và chứa mốc 06 ngày lịch | 1/2 | Có — chunk chứa đáp án ở rank 2 | Gemini trả lời đúng 06 ngày lịch (trừ “Hoàn Tiền Ngay”), citation [2] — GROUNDED_CORRECT nhưng rubric cap 1 vì evidence ở rank 2 |
+| 3 | Khi Shopee yêu cầu bằng chứng cho một yêu cầu trả hàng/hoàn tiền Shopee Mall, Người Bán phải cung cấp trong bao lâu? | `shopee-mall-seller#4` — chứa quy định Người Bán phải cung cấp bằng chứng trong tối đa 24 giờ | 2/2 | Có — chunk chứa đáp án ở rank 1 | Gemini trả lời đúng tối đa 24 giờ kể từ khi nhận yêu cầu, citation [1] — GROUNDED_CORRECT |
+| 4 | Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee? | `warranty-general-seller#22` — đúng tài liệu seller nhưng section top-1 không chứa trực tiếp câu trả lời về trách nhiệm tiếp nhận bảo hành | 0/2 | Không — chunk chứa đáp án không nằm trong top-3 | Gemini từ chối đúng: “Ngữ cảnh được cung cấp không đủ để trả lời câu hỏi.” — GROUNDED_INSUFFICIENT, không đoán mò từ prior knowledge |
+| 5 | Đối với tranh chấp không phải khiếu nại trả hàng/hoàn tiền, Shopee đưa ra hướng giải quyết trong bao lâu sau khi nhận đủ tài liệu? | `dispute-resolution#3` — chứa quy định Shopee đưa ra hướng giải quyết trong vòng 07 ngày làm việc kể từ khi nhận đủ tài liệu | 1/2 | Có — chunk chứa đáp án ở rank 1 | Gemini trả lời đúng 07 ngày làm việc có citation [1] nhưng bỏ sót vế “trường hợp phức tạp được kéo dài” của gold answer — INCORRECT (thiếu chi tiết), rubric 1 vì evidence ở rank 1 |
 
-**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 4/ 5
+**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 4 / 5
+
+**Điểm Section 5 chính thức sau Agent evaluation (Gemini gemini-3.6-flash, temperature=0.0):**
+Q1: 2/2, Q2: 1/2, Q3: 2/2, Q4: 0/2, Q5: 1/2 — **tổng 6/10**.
+Chi tiết đầy đủ trong `agent_results.txt`. Retrieval diagnostic là 7/10; chênh lệch 1 điểm đến từ Q5 — retrieval đúng (evidence rank 1) nhưng câu trả lời của Agent thiếu vế “trường hợp phức tạp”, đúng trường hợp rubric 1 điểm (“có đoạn liên quan nhưng câu trả lời thiếu chi tiết”). Đây chính là lý do điểm Agent-evaluated khác điểm proxy chỉ dựa trên rank.
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
-> *Viết 2-3 câu:*
+> Qua việc so sánh các chiến lược trong nhóm, tôi nhận ra chunking tốt không chỉ là giữ chunk đủ nhỏ mà còn phải bảo toàn cấu trúc của tài liệu. RecursiveChunker của Phùng Thành An cho thấy việc giữ các ranh giới tự nhiên có thể giúp retrieval tốt hơn, trong khi FixedSize có thể làm mất context dù dùng embedding mạnh.
 
 ---
 
@@ -244,5 +246,5 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 | Hướng tiếp cận của tôi (My Approach) | 10 / 10 |
 | Hoàn thiện code (Core Implementation — tests) | 30 / 30 |
 | Dự đoán độ tương tự (Similarity Predictions) | 5 / 5 |
-| Kết quả truy xuất của tôi (Competition Results) | 7 / 10 |
-| **Tổng phần cá nhân** | **57 / 60** |
+| Kết quả truy xuất của tôi (Competition Results — Agent-evaluated chính thức) | 6 / 10 |
+| **Tổng phần cá nhân** | **56 / 60** |

@@ -1,7 +1,8 @@
-Ollama version: 0.34.2
-Model: qwen3:4b
+Generation backend: Gemini API (google-genai SDK)
+Gemini model: gemini-3.6-flash
 Embedding backend: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
-Retrieval strategy: HeadingChunker (chunk_size=800)
+Chunk strategy: HeadingChunker (chunk_size=800)
+Corpus files: 9
 Total chunks: 194
 
 === Q1 ===
@@ -14,22 +15,14 @@ Metadata filter: None
 3. chunk_id=extended-warranty-insurance#3 doc_id=extended-warranty-insurance score=0.7032
    # Quyền lợi bảo hiểm bảo hành mở rộng - Giấy yêu cầu bồi thường và các tài liệu hỗ trợ phải được gửi lại cho công ty BH trong vòng 30 ngày kể từ ngày yêu cầu bồi thường được thông báo lần đầu tiên - Khách hàng yêu cầu bồ
 Gold-answer evidence in top-3: YES (rank 1)
-Agent answer: Okay, let's tackle this question. The user is asking how long the buyer has to submit a return/refund request after the order is successfully delivered.
-
-First, I need to check the provided context to find the relevant information. The context has three sources: [1], [2], and [3]. 
-
-Looking at [1], which is the return-refund-policy section. It says: "Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 15 (mười lăm) ngày kể từ lúc đơn hàng được cập nhật giao hàng thành công." So that's 15 days for most products. But then it mentions that for fresh food and frozen products, it's 24 hours. The question is about the general case, not specific products, so the answer here is 15 days.
-
-Then [2] talks about processing time, but the question is about the time to submit the request, not the processing time after submission. So [2] might not be relevant here.
-
-[3] is about extended warranty insurance, which seems unrelated to return/refund policies. So probably not relevant.
-
-The question is specifically asking for the time frame after the order is successfully delivered. The answer in [1
+Agent answer: Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền trong thời hạn:
+- Trong vòng 15 ngày kể từ lúc đơn hàng được cập nhật giao hàng thành công đối với các sản phẩm thông thường [1].
+- Trong vòng 24 giờ kể từ lúc đơn hàng được cập nhật giao hàng thành công đối với sản phẩm là thực phẩm tươi sống và đông lạnh [1].
 Gold answer: 15 ngày lịch đối với sản phẩm thông thường; 24 giờ đối với thực phẩm tươi sống và đông lạnh.
-Grounding verdict: grounded but incomplete/incorrect
-Supported by retrieved context: NO
-Agent answer correct: NO
-Official rubric score: 1 / 2
+Grounding verdict: GROUNDED_CORRECT
+Supported by retrieved context: YES
+Agent answer correct: YES
+Official rubric score: 2 / 2
 
 === Q2 ===
 Query: Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm?
@@ -41,17 +34,11 @@ Metadata filter: {'audience': 'buyer'}
 3. chunk_id=shopee-mall-buyer#7 doc_id=shopee-mall-buyer score=0.7604
    1. Chính Sách Trả Hàng và Hoàn Tiền của Shopee Mall a. Đối với trường hợp Shopee chủ động chấp nhận “Hoàn Tiền Ngay”: Người Mua được hoàn tiền mà không cần phải hoàn trả Sản Phẩm cho Người Bán. Để tránh hiểu nhầm, nếu Ng
 Gold-answer evidence in top-3: YES (rank 2)
-Agent answer: Okay, let's tackle this question. The user is asking: "Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm?" which translates to "After Shopee Mall approves the return/refund request, how long does the buyer have to send back the product?"
-
-First, I need to look at the context provided. There are three sources, [1], [2], and [3]. Let me go through each one.
-
-Starting with [1]: It talks about the time limit for the buyer to request a refund or return. It says that the buyer can request a refund within 24 hours for fresh food and frozen products (except if they haven't received the item), and 15 days for other products. But this is about the time to request, not the time after approval to send back the product.
-
-Then [2]: This section is about the return and refund policy. It states: "Sau khi Người Mua yêu cầu trả hàng/hoàn tiền, trừ trường hợp được 'Hoàn Tiền Ngay', Người Mua tại Shopee Mall phải hoàn trả Sản Phẩm đến Trung Tâm Xử Lý Trả Hàng của
+Agent answer: Sau khi yêu cầu trả hàng/hoàn tiền được chấp thuận, trừ trường hợp được “Hoàn Tiền Ngay”, Người Mua tại Shopee Mall phải hoàn trả Sản Phẩm trong vòng 06 (sáu) ngày lịch [2].
 Gold answer: 6 ngày lịch kể từ khi yêu cầu được chấp thuận.
-Grounding verdict: grounded but incomplete/incorrect
-Supported by retrieved context: NO
-Agent answer correct: NO
+Grounding verdict: GROUNDED_CORRECT
+Supported by retrieved context: YES
+Agent answer correct: YES
 Official rubric score: 1 / 2
 
 === Q3 ===
@@ -64,20 +51,12 @@ Metadata filter: {'audience': 'seller'}
 3. chunk_id=shopee-mall-seller#3 doc_id=shopee-mall-seller score=0.8020
    1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall a. Trong hầu hết các trường hợp, Shopee sẽ xử lý và đưa ra quyết định cuối cùng liên quan đến yêu cầu trả hàng hoàn 
 Gold-answer evidence in top-3: YES (rank 1)
-Agent answer: Okay, let's tackle this question. The user is asking how long the Seller at Shopee Mall has to provide evidence when Shopee requests it for a return/refund request.
-
-First, I need to look at the context provided. There are three sources here, all labeled [1], [2], [3]. Let me check each one.
-
-Starting with [1]: It says that the Seller has to provide related evidence within a maximum of 24 hours from when they receive Shopee's request. The section is 1.9.2 about the return/refund processing procedure for Shopee Mall sellers.
-
-Then [2] is about the appeal deadline for sellers, but it talks about checking the package's condition when receiving the returned product. Not directly related to the time frame for providing evidence when Shopee asks for it.
-
-[3] is another part of 1.9.2. It mentions that Shopee will process the refund request within 5 days (excluding weekends and holidays) after receiving the refund request or the returned product. Also, during verification, Shopee can require sellers to provide evidence like import documents, agency contracts, etc. But the time frame here is for Shopee's processing, not the
+Agent answer: Người Bán tại Shopee Mall phải cung cấp các bằng chứng liên quan trong vòng tối đa 24 (hai mươi bốn) giờ kể từ khi nhận được yêu cầu của Shopee [1].
 Gold answer: Tối đa 24 giờ kể từ khi nhận được yêu cầu của Shopee.
-Grounding verdict: grounded but incomplete/incorrect
-Supported by retrieved context: NO
-Agent answer correct: NO
-Official rubric score: 1 / 2
+Grounding verdict: GROUNDED_CORRECT
+Supported by retrieved context: YES
+Agent answer correct: YES
+Official rubric score: 2 / 2
 
 === Q4 ===
 Query: Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee?
@@ -89,21 +68,11 @@ Metadata filter: {'audience': 'seller'}
 3. chunk_id=warranty-general-seller#2 doc_id=warranty-general-seller score=0.7237
    2. Định nghĩa chung: a. Người Bán: là thương nhân, tổ chức, cá nhân có nhu cầu sử dụng dịch vụ của Shopee bao gồm: tạo lập gian hàng, đăng tin giới thiệu sản phẩm/dịch vụ, và hoặc khuyến mại sản phẩm/dịch vụ. Người Bán b
 Gold-answer evidence in top-3: NO
-Agent answer: Okay, let's tackle this question. The user is asking who is responsible for accepting the product warranty for the buyer on Shopee. I need to check the provided context to find the answer.
-
-First, I'll go through each context section. 
-
-Context [1] talks about the seller's rights and responsibilities on Shopee. It mentions things like handling imports on behalf of the buyer for foreign goods and designating a trade agent in Vietnam. But it doesn't directly address warranty responsibility.
-
-Context [2] is about dividing responsibilities between the seller, buyer, and Shopee in resolving transaction issues. It has a signature section with a date, but the content here seems to be a copy of a document with a signature and effective date. It doesn't specify warranty responsibilities.
-
-Context [3] defines the general terms: Seller, Buyer, and Members. It says the Seller is a merchant, organization, or individual who uses Shopee services, creates a store, lists products, etc. The Buyer is someone looking for products on Shopee. But again, this section doesn't mention warranty acceptance.
-
-Wait, the question is about who takes responsibility for the product warranty for the buyer. In e-commerce, usually, the seller is responsible for the product warranty
+Agent answer: Ngữ cảnh được cung cấp không đủ để trả lời câu hỏi.
 Gold answer: Người Bán chịu trách nhiệm tiếp nhận bảo hành theo chính sách đã công bố; Shopee không trực tiếp thực hiện nghĩa vụ bảo hành, trừ sản phẩm do chính Shopee đăng bán.
-Grounding verdict: hallucinated / unsupported
-Supported by retrieved context: NO
-Agent answer correct: NO
+Grounding verdict: GROUNDED_INSUFFICIENT
+Supported by retrieved context: YES
+Agent answer correct: YES
 Official rubric score: 0 / 2
 
 === Q5 ===
@@ -116,27 +85,18 @@ Metadata filter: {'audience': 'both'}
 3. chunk_id=return-refund-policy#36 doc_id=return-refund-policy score=0.7473
    11. TRANH CHẤP GIỮA NGƯỜI MUA VÀ NGƯỜI BÁN Trong trường hợp khoản tiền thanh toán này đã được trả cho Người Bán theo Chính Sách Shopee Đảm Bảo, Shopee có quyền điều chỉnh số tiền đã thanh toán sau khi có quyết định cuối 
 Gold-answer evidence in top-3: YES (rank 1)
-Agent answer: Okay, let's tackle this question. The user is asking about the time frame Shopee takes to resolve disputes that aren't return/refund complaints after receiving all necessary documents.
-
-First, I need to look at the context provided. There are three sources: [1], [2], and [3]. Let me check each one.
-
-Starting with [1], which is about dispute resolution. The relevant part says: "Đối với các tranh chấp không phải là khiếu nại Trả Hàng/Hoàn Tiền, Shopee yêu cầu các bên tranh chấp cung cấp đầy đủ thông tin/tài liệu liên quan đến vụ việc, và đưa ra hướng giải quyết dựa trên các thông tin/tài liệu thu thập được trong vòng 07 ngày làm việc kể từ ngày nhận được đầy đủ các thông tin/tài liệu có liên quan đến vụ việc."
-
-So here it states that for disputes that aren't return/refund complaints, Shopee will provide a resolution within 7 working days after receiving all the necessary documents.
-
-Then checking [2] and [3] to see if there's any conflicting info. [2] talks about when a party complains to authorities, but the time frame mentioned there is about payment suspension,
+Agent answer: Đối với các tranh chấp không phải là khiếu nại Trả Hàng/Hoàn Tiền, Shopee đưa ra hướng giải quyết trong vòng 07 ngày làm việc kể từ ngày nhận được đầy đủ các thông tin/tài liệu có liên quan đến vụ việc [1].
 Gold answer: Trong vòng 07 ngày làm việc kể từ ngày nhận đủ thông tin/tài liệu; trường hợp phức tạp có thể kéo dài hơn.
-Grounding verdict: grounded but incomplete/incorrect
+Grounding verdict: INCORRECT
 Supported by retrieved context: NO
 Agent answer correct: NO
 Official rubric score: 1 / 2
 
-=== Official Section 5 score ===
-Q1: 1 / 2 — Agent answer was incomplete or incorrect
+=== Official Section 5 score (docs/SCORING.md) ===
+Q1: 2 / 2 — answer evidence at rank 1 and Agent answer correct
 Q2: 1 / 2 — answer evidence at rank 2, so the rubric caps this at 1
-Q3: 1 / 2 — Agent answer was incomplete or incorrect
+Q3: 2 / 2 — answer evidence at rank 1 and Agent answer correct
 Q4: 0 / 2 — no answer-containing chunk in top-3
 Q5: 1 / 2 — Agent answer was incomplete or incorrect
-Total: 4 / 10
-Old retrieval-rank proxy: 7 / 10
-Official rubric score after Agent evaluation: 4 / 10
+Total official Agent-evaluated Section 5 score: 6 / 10
+Retrieval-only diagnostic score (rank proxy, no LLM): 7 / 10
