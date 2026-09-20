@@ -15,6 +15,28 @@ language: vi
 
 Chào mừng bạn đến với Shopee Mall. Shopee Mall là một dịch vụ gia tăng trên Trang Shopee, nơi Người Mua đã đăng ký của Shopee có thể hưởng các quyền và ưu đãi được mô tả trong Điều Khoản Dịch Vụ của Shopee Mall (“Điều Khoản Dịch Vụ Shopee Mall”) khi mua các Sản Phẩm trên Shopee Mall từ các Người Bán đã được Shopee lựa chọn cẩn thận (những Người Bán này là “Người Bán tại Shopee Mall” hoặc “Người Bán”, và Người Mua là “Người Mua tại Shopee Mall” hoặc “Người Mua”). Nếu bạn là Người Mua tại Shopee Mall, bạn sẽ được xem là đồng ý với các điều khoản và điều kiện được mô tả trong Điều Khoản Dịch Vụ Shopee Mall khi bạn mua hàng trên Shopee Mall. Tương tự, nếu bạn là Người Bán tại Shopee Mall, bạn sẽ được xem là đã đồng ý với các điều khoản và điều kiện được mô tả trong Điều Khoản Dịch Vụ Shopee Mall nếu bạn tiếp tục tham gia bán hàng tại Shopee Mall. Điều Khoản Dịch Vụ Shopee Mall này sẽ bổ sung cho các Điều Khoản Dịch Vụ và Chính Sách Shopee khác, mà trong đó Điều Khoản Dịch Vụ Shopee Mall này sẽ là một phần không tách rời - vui lòng đọc Điều Khoản Dịch Vụ và Chính Sách Shopee khác có sẵn trên Trang Web https://shopee.vn/ với những thông tin quan trọng liên quan đến quyền và nghĩa vụ của bạn. Bất kỳ điều khoản nào được sử dụng trong Điều Khoản Dịch Vụ Shopee Mall mà không được định rõ trong bản điều khoản này sẽ có ý nghĩa như những điều khoản tương ứng trong Điều Khoản Dịch Vụ và/hoặc Chính Sách Shopee hiện hành. Tất cả các điều khoản và điều kiện được mô tả trong Điều Khoản Dịch Vụ Shopee Mall này có thể thay đổi tùy theo quyết định của Shopee theo Điều Khoản Dịch Vụ.
 
+1.9.2.  Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall
+
+a.  Trong hầu hết các trường hợp, Shopee sẽ xử lý và đưa ra quyết định cuối cùng liên quan đến yêu cầu trả hàng hoàn tiền của Người Mua trong vòng 05 ngày (không kể thứ bảy, chủ nhật và ngày lễ) kể từ thời điểm Shopee nhận được yêu cầu hoàn tiền hoặc nhận được Sản Phẩm Hoàn Trả về từ Người Mua. Trong quá trình xác minh, Shopee có quyền yêu cầu Người Bán tại Shopee Mall cung cấp các bằng chứng liên quan (VD: chứng từ nhập khẩu của hàng hóa cụ thể trong đơn hàng để chứng minh là hàng chính hãng, hợp đồng đại lý với nhà sản xuất/nhà phân phối, và/hoặc hóa đơn mua hàng hợp lệ từ với nhà sản xuất/nhà phân phối, v.v.). Người Bán tại Shopee Mall có trách nhiệm cung cấp các bằng chứng liên quan trong vòng tối đa 24 (hai mươi bốn) giờ kể từ khi nhận được yêu cầu của Shopee.
+
+b.  Đối với trường hợp hoàn tiền có đi kèm với trả hàng, trong trường hợp Shopee đồng ý với yêu cầu của Người Mua, Shopee sẽ gửi trả lại Sản Phẩm cho Người Bán tại Shopee Mall trong vòng 07 (bảy) ngày làm việc kể từ ngày Shopee đưa ra quyết định cuối cùng liên quan đến yêu cầu trả hàng hoàn tiền của Người Mua. Người Bán tại Shopee Mall có nghĩa vụ nhận lại Sản Phẩm Hoàn Trả trong vòng 07 (bảy) ngày làm việc kể từ khi nhận được quyết định cuối cùng của Shopee liên quan đến yêu cầu trả hàng hoàn tiền. Sản Phẩm Hoàn Trả sẽ được gửi đến địa chỉ gửi hàng Người Bán đã đăng ký với Shopee. Nếu (i) địa chỉ do Người Bán đã đăng ký không chính xác và Người Bán không cung cấp địa chỉ nhận hàng chính xác cho Shopee, hoặc (ii) Người Bán không nhận lại Sản Phẩm Hoàn Trả hoặc không thể liên lạc được, trong 05 (năm) ngày làm việc kể từ ngày nhận được thông báo gửi trả lại Sản Phẩm Hoàn Trả của Shopee, thì Người Bán được xem là đã từ bỏ Sản Phẩm cùng với các quyền/quyền lợi liên quan đến Sản Phẩm Hoàn Trả đó, và Shopee có toàn quyền tiêu hủy/xử lý/thanh lý/chiếm hữu Sản Phẩm Hoàn Trả  mà không phải thanh toán hoặc bồi thường bất kỳ khoản tiền hoặc lợi ích vật chất nào cho Người Bán liên quan đến Sản Phẩm Hoàn Trả đó.
+
+c.  Người Bán tại Shopee Mall đồng ý rằng quyết định giải quyết khiếu nại/yêu cầu trả hàng hoàn tiền của Shopee là quyết định cuối cùng, và có giá trị thi hành đối với với Người Bán tại Shopee Mall và Người mua.
+
+1.9.3. Chi phí vận chuyển và xử lý Sản Phẩm Hoàn Trả và giao không thành công:
+
+a.  Người Bán tại Shopee Mall sẽ chịu trách nhiệm chi trả chi phí vận chuyển chiều hoàn trả trong trường hợp đơn hàng không chuyển phát được trong quá trình vận chuyển hoặc có phát sinh Trả Hàng và Hoàn Tiền.
+
+b.  Người Bán tại Shopee Mall thừa nhận và đồng ý rằng trong tương lai, Shopee có thể, trong từng thời điểm, có sự điều chỉnh về việc thu phí vận chuyển và xử lý Sản Phẩm Hoàn Trả về hoặc đơn giao không thành công cho Người Bán tại Shopee Mall bằng thông báo cho Người Bán tại Shopee Mall tối thiểu 07 (bảy) ngày lịch trước ngày có điều chỉnh về việc thu phí này.
+
+1.9.4. Thời hạn khiếu nại cho Người Bán tại Shopee Mall:
+
+a.  Khi nhận được Sản Phẩm Hoàn Trả theo quyết định giải quyết khiếu nại/yêu cầu trả hàng-hoàn tiền của Shopee, Người Bán tại Shopee Mall có trách nhiệm kiểm tra và ký xác nhận với đại diện của Đơn vị vận chuyển về tình trạng nguyên vẹn bên ngoài của bưu kiện.
+
+b.  Trong trường hợp bưu kiện không còn nguyên vẹn tại thời điểm nhận hàng (có dấu hiệu đã bị mở hoặc bị ướt, rách, móp méo hoặc hư hại), Người Bán tại Shopee Mall có trách nhiệm từ chối nhận hàng và thông báo ngay cho Shopee trong vòng 24 (hai mươi bốn) giờ kể từ thời điểm nhận hàng.
+
+1.9.5.  Đối với Sản Phẩm Hoàn Trả bị hư hại do vận chuyển, Shopee sẽ bồi thường cho Người Bán tại Shopee Mall theo quy định tại Chính Sách Vận Chuyển. Người Bán tại Shopee Mall cần gửi email khiếu nại kèm theo các ảnh chụp/ video bằng chứng cụ thể cho Shopee về Sản Phẩm Hoàn Trả  bị hư hại do vận chuyển trong vòng tối đa 02 (hai) ngày lịch kể từ ngày Người Bán tại Shopee Mall nhận được Sản Phẩm Hoàn Trả. Trong trường hợp được Shopee yêu cầu bổ sung thông tin/tài liệu, Người Bán cần cung cấp các thông tin/tài liệu có liên quan trong vòng 24 (hai mươi bốn) giờ kể từ khi nhận được thông báo của Shopee. Trong trường hợp Người Bán không tuân thủ thời hạn cung cấp thông tin/tài liệu cho Shopee theo khoản này, Người Bán được xem là không cung cấp các tài liệu/thông tin cho Shopee.
+
 2.       Các Điều khoản và Điều kiện cho Người Bán tại Shopee Mall
 
 2.1.     Nếu bạn là Người Bán tại Shopee Mall, bạn sẽ nhận được một thông báo riêng từ Shopee thông qua Trang Shopee, hoặc email về lựa chọn tham gia Shopee Mall của bạn. Vui lòng thực hiện các hướng dẫn và thủ tục trong thông báo của Shopee để tham gia vào Shopee Mall.
@@ -256,9 +278,3 @@ Thuế suất thuế GTGT áp dụng từ ngày 01/7/2025 là 8%.
 Điều Khoản Dịch Vụ Shopee Mall này được đăng tải vào ngày 24/4/2026, có hiệu lực kể từ ngày 08/5/2026.
 
 Để tham khảo phiên bản trước của Điều Khoản Dịch Vụ Shopee Mall, vui lòng bấm vào ĐÂY. 
-
-Bạn có hài lòng với bài viết này?
-
-Hài lòng
-
-Không hài lòng

@@ -198,9 +198,3 @@ Liên hệ: https://help.shopee.vn/vn/s/contactusform.
 Bản Cập Nhật ngày 03/01/2025.
 
 Phiên bản này có hiệu lực sau 07 (bảy) ngày kể từ ngày đăng tải lên Sàn Thương Mại Điện Tử Shopee. Để tham khảo phiên bản trước đây của Quy chế hoạt động, vui lòng bấm vào ĐÂY.
-
-Bạn có hài lòng với bài viết này?
-
-Hài lòng
-
-Không hài lòng

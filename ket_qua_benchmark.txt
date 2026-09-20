@@ -1,0 +1,139 @@
+Embedding backend: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Chunk strategy: HeadingChunker (chunk_size=800)
+Source files: 9
+Total chunks loaded: 194
+Chunks per source file:
+  dispute-resolution: 10
+  extended-warranty-insurance: 19
+  insurance-activation: 2
+  return-refund-guide: 4
+  return-refund-policy: 38
+  shopee-mall-buyer: 19
+  shopee-mall-seller: 51
+  warranty-general-buyer: 23
+  warranty-general-seller: 28
+
+Sample policy-heading chunks:
+  return-refund-policy:
+    return-refund-policy#1: 1. ĐỐI TƯỢNG VÀ PHẠM VI ÁP DỤNG
+    return-refund-policy#2: 1.1. Đối Tượng Áp Dụng Chính Sách Trả Hàng và Hoàn Tiền này áp dụng đối với Người Mua, Người Bán, các đơn vị cung cấp dịch vụ vận chuyển, nhân viên giao nhận (shipper) của các đơn vị cung cấp dịch vụ 
+    return-refund-policy#3: 1.2. Phạm Vi Áp Dụng Chính Sách Trả Hàng và Hoàn Tiền này quy định về quyền và nghĩa vụ của Người Mua được yêu cầu trả hàng, hoàn tiền; cũng như quyền và nghĩa vụ của Shopee, Người Bán, đơn vị vận chu
+  shopee-mall-seller:
+    shopee-mall-seller#3: 1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall a. Trong hầu hết các trường hợp, Shopee sẽ xử lý và đưa ra quyết định cuối cùng liên quan đến yê
+    shopee-mall-seller#8: 1.9.3. Chi phí vận chuyển và xử lý Sản Phẩm Hoàn Trả và giao không thành công: a. Người Bán tại Shopee Mall sẽ chịu trách nhiệm chi trả chi phí vận chuyển chiều hoàn trả trong trường hợp đơn hàng 
+    shopee-mall-seller#9: 1.9.4. Thời hạn khiếu nại cho Người Bán tại Shopee Mall: a. Khi nhận được Sản Phẩm Hoàn Trả theo quyết định giải quyết khiếu nại/yêu cầu trả hàng-hoàn tiền của Shopee, Người Bán tại Shopee Mall có trá
+  warranty-general-seller:
+    warranty-general-seller#1: 1. Sàn Giao dịch Thương mại Điện tử: a. Sàn giao dịch TMĐT Shopee do Công ty TNHH Shopee phát triển với tên miền Sàn giao dịch là: www.shopee.vn và ứng dụng Shopee trên iOS và Android (sau đây gọi tắt
+    warranty-general-seller#2: 2. Định nghĩa chung: a. Người Bán: là thương nhân, tổ chức, cá nhân có nhu cầu sử dụng dịch vụ của Shopee bao gồm: tạo lập gian hàng, đăng tin giới thiệu sản phẩm/dịch vụ, và hoặc khuyến mại sản phẩm/
+    warranty-general-seller#5: 2. Quy trình dành cho Người Bán Đăng ký tài khoản Shopee và cung cấp thông tin Người Bán trên Kênh Người Bán theo quy định của Shopee; Sau khi hoàn thành việc cung cấp thông tin Người Bán theo quy địn
+
+=== Five-query retrieval benchmark ===
+
+Q1: Người Mua có bao lâu để gửi yêu cầu trả hàng/hoàn tiền sau khi đơn được giao thành công?
+Filter: None
+Gold answer: 15 ngày lịch đối với sản phẩm thông thường; 24 giờ đối với thực phẩm tươi sống và đông lạnh.
+  1. score=0.7834 doc_id=return-refund-policy chunk_id=return-refund-policy#8 marker=YES
+     3. ĐIỀU KIỆN YÊU CẦU TRẢ HÀNG/HOÀN TIỀN 3.2. Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 15 (mười lăm) ngày kể từ lúc đơn hàng được cập nhật giao hàng thành công. Ri
+     matched: 15 (mười lăm) ngày
+  2. score=0.7081 doc_id=return-refund-guide chunk_id=return-refund-guide#3 marker=no
+     2. Lưu ý Thời gian xử lý Yêu cầu của bạn thường được xử lý trong khoảng 3 - 5 ngày làm việc. Kết quả xử lý Shopee sẽ thông báo kết quả qua mục Thông báo > Cập nhật đơn hàng và/hoặc
+  3. score=0.7032 doc_id=extended-warranty-insurance chunk_id=extended-warranty-insurance#3 marker=no
+     # Quyền lợi bảo hiểm bảo hành mở rộng - Giấy yêu cầu bồi thường và các tài liệu hỗ trợ phải được gửi lại cho công ty BH trong vòng 30 ngày kể từ ngày yêu cầu bồi thường được thông 
+Query score: 2 / 2
+Answer-containing chunk in top-3: YES (rank 1)
+
+Q2: Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm?
+Filter: {'audience': 'buyer'}
+Gold answer: 6 ngày lịch kể từ khi yêu cầu được chấp thuận.
+  1. score=0.8155 doc_id=shopee-mall-buyer chunk_id=shopee-mall-buyer#18 marker=no
+     1.9. Thời hạn và điều kiện Người Mua tại Shopee Mall được phép yêu cầu trả hàng: 1.9.1. Người Bán tại Shopee Mall và Shopee cùng đồng ý rằng Người Mua tại Shopee Mall có quyền gửi 
+  2. score=0.7879 doc_id=shopee-mall-buyer chunk_id=shopee-mall-buyer#5 marker=YES
+     1. Chính Sách Trả Hàng và Hoàn Tiền của Shopee Mall 1.2. Sau khi Người Mua yêu cầu trả hàng/hoàn tiền, trừ trường hợp được “Hoàn Tiền Ngay”, Người Mua tại Shopee Mall phải hoàn trả
+     matched: 06 (sáu) ngày lịch kể từ ngày yêu cầu trả hàng/hoàn tiền được chấp thuận
+  3. score=0.7604 doc_id=shopee-mall-buyer chunk_id=shopee-mall-buyer#7 marker=no
+     1. Chính Sách Trả Hàng và Hoàn Tiền của Shopee Mall a. Đối với trường hợp Shopee chủ động chấp nhận “Hoàn Tiền Ngay”: Người Mua được hoàn tiền mà không cần phải hoàn trả Sản Phẩm c
+Query score: 1 / 2
+Answer-containing chunk in top-3: YES (rank 2)
+
+Q3: Khi Shopee yêu cầu bằng chứng cho một yêu cầu trả hàng/hoàn tiền Shopee Mall, Người Bán phải cung cấp trong bao lâu?
+Filter: {'audience': 'seller'}
+Gold answer: Tối đa 24 giờ kể từ khi nhận được yêu cầu của Shopee.
+  1. score=0.8783 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#4 marker=YES
+     1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall Người Bán tại Shopee Mall có trách nhiệm cung cấp các bằng chứng liên quan t
+     matched: có trách nhiệm cung cấp các bằng chứng liên quan trong vòng tối đa 24 (hai mươi bốn) giờ
+  2. score=0.8060 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#9 marker=no
+     1.9.4. Thời hạn khiếu nại cho Người Bán tại Shopee Mall: a. Khi nhận được Sản Phẩm Hoàn Trả theo quyết định giải quyết khiếu nại/yêu cầu trả hàng-hoàn tiền của Shopee, Người Bán tạ
+  3. score=0.8020 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#3 marker=no
+     1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall a. Trong hầu hết các trường hợp, Shopee sẽ xử lý và đưa ra quyết định cuối c
+Query score: 2 / 2
+Answer-containing chunk in top-3: YES (rank 1)
+
+Q4: Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee?
+Filter: {'audience': 'seller'}
+Gold answer: Người Bán chịu trách nhiệm tiếp nhận bảo hành theo chính sách đã công bố; Shopee không trực tiếp thực hiện nghĩa vụ bảo hành, trừ sản phẩm do chính Shopee đăng bán.
+  1. score=0.7491 doc_id=warranty-general-seller chunk_id=warranty-general-seller#22 marker=no
+     3. Quyền và trách nhiệm của Người bán trên website/ứng dụng Shopee ii. Thực hiện nhập khẩu theo ủy thác của người mua đối với hàng hóa do thương nhân, tổ chức nước ngoài giao dịch 
+  2. score=0.7393 doc_id=warranty-general-seller chunk_id=warranty-general-seller#27 marker=no
+     4. Phân định trách nhiệm giữa Người Bán, Người Mua và Shopee trong việc giải quyết các vấn đề phát sinh từ giao dịch thực hiện trên website/ứng dụng Giám đốc [đã ký và đóng dấu] TR
+  3. score=0.7237 doc_id=warranty-general-seller chunk_id=warranty-general-seller#2 marker=no
+     2. Định nghĩa chung: a. Người Bán: là thương nhân, tổ chức, cá nhân có nhu cầu sử dụng dịch vụ của Shopee bao gồm: tạo lập gian hàng, đăng tin giới thiệu sản phẩm/dịch vụ, và hoặc 
+Query score: 0 / 2
+Answer-containing chunk in top-3: NO
+
+Q5: Đối với tranh chấp không phải khiếu nại trả hàng/hoàn tiền, Shopee đưa ra hướng giải quyết trong bao lâu sau khi nhận đủ tài liệu?
+Filter: {'audience': 'both'}
+Gold answer: Trong vòng 07 ngày làm việc kể từ ngày nhận đủ thông tin/tài liệu; trường hợp phức tạp có thể kéo dài hơn.
+  1. score=0.8517 doc_id=dispute-resolution chunk_id=dispute-resolution#3 marker=YES
+     1. Quy Định Chung Về Giải Quyết Tranh Chấp/Xử Lý Khiếu Nại Bước 3: Khiếu nại Trả Hàng/Hoàn Tiền được xử lý theo Chính Sách Trả Hàng Và Hoàn Tiền của Shopee. Đối với các tranh chấp 
+     matched: trong vòng 07 ngày làm việc kể từ ngày nhận được đầy đủ
+  2. score=0.8193 doc_id=return-refund-policy chunk_id=return-refund-policy#35 marker=no
+     11. TRANH CHẤP GIỮA NGƯỜI MUA VÀ NGƯỜI BÁN 11.2. Nếu một bên khiếu nại bên kia tới các Cơ quan chức năng, bên khiếu nại cần thông báo kịp thời với Shopee về vụ việc tranh chấp này 
+  3. score=0.7473 doc_id=return-refund-policy chunk_id=return-refund-policy#36 marker=no
+     11. TRANH CHẤP GIỮA NGƯỜI MUA VÀ NGƯỜI BÁN Trong trường hợp khoản tiền thanh toán này đã được trả cho Người Bán theo Chính Sách Shopee Đảm Bảo, Shopee có quyền điều chỉnh số tiền đ
+Query score: 2 / 2
+Answer-containing chunk in top-3: YES (rank 1)
+
+Total benchmark score: 7 / 10
+Queries with answer-containing chunk in top-3: 4 / 5
+
+=== Metadata A/B test ===
+Query: Khi Shopee yêu cầu cung cấp bằng chứng cho yêu cầu trả hàng/hoàn tiền Shopee Mall thì phải cung cấp trong bao lâu?
+
+A. WITHOUT metadata filter
+  1. score=0.8724 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#4 marker=YES
+     1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall Người Bán tại Shopee Mall có trách nhiệm cung cấp các bằng chứng liên quan t
+     matched: có trách nhiệm cung cấp các bằng chứng liên quan trong vòng tối đa 24 (hai mươi bốn) giờ
+  2. score=0.8276 doc_id=shopee-mall-buyer chunk_id=shopee-mall-buyer#18 marker=no
+     1.9. Thời hạn và điều kiện Người Mua tại Shopee Mall được phép yêu cầu trả hàng: 1.9.1. Người Bán tại Shopee Mall và Shopee cùng đồng ý rằng Người Mua tại Shopee Mall có quyền gửi 
+  3. score=0.7962 doc_id=shopee-mall-buyer chunk_id=shopee-mall-buyer#5 marker=no
+     1. Chính Sách Trả Hàng và Hoàn Tiền của Shopee Mall 1.2. Sau khi Người Mua yêu cầu trả hàng/hoàn tiền, trừ trường hợp được “Hoàn Tiền Ngay”, Người Mua tại Shopee Mall phải hoàn trả
+
+B. WITH metadata filter {'audience': 'seller'}
+  1. score=0.8724 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#4 marker=YES
+     1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall Người Bán tại Shopee Mall có trách nhiệm cung cấp các bằng chứng liên quan t
+     matched: có trách nhiệm cung cấp các bằng chứng liên quan trong vòng tối đa 24 (hai mươi bốn) giờ
+  2. score=0.7883 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#9 marker=no
+     1.9.4. Thời hạn khiếu nại cho Người Bán tại Shopee Mall: a. Khi nhận được Sản Phẩm Hoàn Trả theo quyết định giải quyết khiếu nại/yêu cầu trả hàng-hoàn tiền của Shopee, Người Bán tạ
+  3. score=0.7872 doc_id=shopee-mall-seller chunk_id=shopee-mall-seller#3 marker=no
+     1.9.2. Quy trình xử lý yêu cầu trả hàng hoàn tiền của Shopee Mall áp dụng cho Người Bán tại Shopee Mall a. Trong hầu hết các trường hợp, Shopee sẽ xử lý và đưa ra quyết định cuối c
+A/B summary: Filtering changed results but left the answer-containing chunk at rank 1.
+
+=== Failure analysis ===
+Query: Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee?
+Expected: Người Bán chịu trách nhiệm tiếp nhận bảo hành theo chính sách đã công bố; Shopee không trực tiếp thực hiện nghĩa vụ bảo hành, trừ sản phẩm do chính Shopee đăng bán.
+Top-3 returned: warranty-general-seller#22, warranty-general-seller#27, warranty-general-seller#2
+Likely reason: The correct source document was retrieved, but answer-less sections ranked above the answer chunk.
+Improvement: Add hybrid lexical/semantic retrieval or reranking that rewards exact time and policy phrases.
+
+=== Report-ready summary ===
+Strategy: HeadingChunker
+Embedding backend: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Total chunks: 194
+Relevant answer chunk in top-3: 4/5
+Retrieval score: 7/10
+Strongest query: Q1
+Weakest query: Q4
+Metadata A/B result: Filtering changed results but left the answer-containing chunk at rank 1.
+Failure insight: The correct source document was retrieved, but answer-less sections ranked above the answer chunk.
+Agent evaluation: skipped because no configured real llm_fn is available; agent-answer correctness must be evaluated separately.
+Exported results: C:\Users\ASUS\Documents\AI thực chiến\K4-DAY07-DinhTuanLong-2A202602620\ket_qua_benchmark.txt

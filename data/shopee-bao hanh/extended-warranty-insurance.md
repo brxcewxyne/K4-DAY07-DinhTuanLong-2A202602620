@@ -13,14 +13,7 @@ language: vi
 ---
 # Quyền lợi bảo hiểm bảo hành mở rộng
 
-[Bảo hiểm] Điều kiện, cách thức và quy định bồi thường Bảo hiểm là gì? | Shopee Trung tâm trợ giúp
-
-Xin chào, Shopee có thể giúp gì cho bạn?
-
-[Bảo hiểm] Điều kiện, cách thức và quy định bồi thường Bảo hiểm là gì?
-
 Mỗi loại Bảo hiểm sẽ có những điều kiện, cách thức và quy định bồi thường khác nhau từ công ty Bảo hiểm. Shopee xin phép liệt kê một số điểm quan trọng liên quan đến bồi thường như sau:
-
  
 
 Đối với nhóm Bảo hiểm sản phẩm:
@@ -450,11 +443,3 @@ Bảo hiểm bắt buộc TNDS xe ô tô
  
 
 Xem thêm: [Bảo hiểm] Hướng dẫn gửi yêu cầu bồi thường Bảo hiểm trên Shopee
-
- 
-
-Bạn có hài lòng với bài viết này?
-
-Hài lòng
-
-Không hài lòng

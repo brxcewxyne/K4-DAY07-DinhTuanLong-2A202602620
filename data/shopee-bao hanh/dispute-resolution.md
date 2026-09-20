@@ -13,12 +13,6 @@ language: vi
 ---
 # Quy trình giải quyết tranh chấp và xử lý khiếu nại
 
-QUY TRÌNH GIẢI QUYẾT TRANH CHẤP/ XỬ LÝ KHIẾU NẠI | Shopee Trung tâm trợ giúp
-
-Xin chào, Shopee có thể giúp gì cho bạn?
-
-QUY TRÌNH GIẢI QUYẾT TRANH CHẤP/ XỬ LÝ KHIẾU NẠI
-
 1. Quy Định Chung Về Giải Quyết Tranh Chấp/Xử Lý Khiếu Nại
 
 Khi phát sinh tranh chấp hoặc khiếu nại, Shopee khuyến khích giải pháp thương lượng, hòa giải giữa các bên để đạt được sự đồng thuận về phương án giải quyết. Nếu Người Bán, Người Mua và các bên có liên quan không thể thương lượng với nhau, Shopee có trách nhiệm giải quyết vụ việc theo quy định của pháp luật hiện hành, các quy định, chính sách trên Sàn Shopee. Quyết định của Shopee là quyết định cuối cùng trừ trường hợp vụ việc được xử lý bởi cơ quan nhà nước có thẩm quyền theo quy định của pháp luật. Tranh chấp hoặc khiếu nại sẽ được Shopee xử lý theo trình tự sau:
@@ -46,9 +40,3 @@ Quy trình giải quyết tranh chấp, khiếu nại này được giải thíc
 Quy Trình này được cập nhật và đăng tải vào ngày 15/3/2024.
 
 Phiên bản này có hiệu lực sau 07 ngày kể từ ngày đăng tải. Quy định đối với quy định về Người tiêu dùng dễ bị tổn thương sẽ có hiệu lực kể từ ngày 01/07/2024. Để tham khảo phiên bản trước của Quy trình, vui lòng bấm vào ĐÂY.
-
-Bạn có hài lòng với bài viết này?
-
-Hài lòng
-
-Không hài lòng
